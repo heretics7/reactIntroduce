@@ -6,7 +6,9 @@ import { Navbar,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu} from 'reactstrap';
-import svgimg from '../img/header/githublogo.svg'
+
+import headerstyle from './css/header.module.css';
+import svgimg from '../img/header/githublogo.svg';
 
 
 
@@ -25,7 +27,7 @@ class Header extends Component{
           isOpen: !this.state.isOpen
         });
       }
-
+      // 내 태그 위에서 씌워라 리액트 컴포넌트
     render(){
         return(
             <header id='hd'>
@@ -45,7 +47,7 @@ class Header extends Component{
                     <Collapse isOpen={ this.state.isOpen } navbar>
                         <ul className="navbar-nav">
                             <NavItem>
-                                <NavLink to="/components/">Components</NavLink>
+                                <NavLink to="/components/" className={headerstyle.color}>Components</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/components2/">Components2</NavLink>
@@ -53,30 +55,26 @@ class Header extends Component{
                             <NavItem>
                                 <NavLink to="/components3/">Components3</NavLink>
                             </NavItem>
-                           
                             <UncontrolledDropdown nav >
                                 {/* 중요 옵션 nav를 넣어주어야 li태그가 됨 */}
-                            <DropdownToggle tag='a' href='#none'>
-                            Dropdown link
-                            </DropdownToggle>
-                            <DropdownMenu >
-                                <ul>
-                                    <li><NavLink to="/components/">Components</NavLink></li>
-                                    <li><NavLink to="/components/">Components</NavLink></li>
-                                    <li><NavLink to="/components/">Components</NavLink></li>
-                                </ul>
-                            </DropdownMenu>
+                                <DropdownToggle tag='a' href='#none'>
+                                    Dropdown link
+                                </DropdownToggle>
+                                <DropdownMenu >
+                                    <ul>
+                                        <li><NavLink to="/components/">Components</NavLink></li>
+                                        <li><NavLink to="/components/">Components</NavLink></li>
+                                        <li><NavLink to="/components/">Components</NavLink></li>
+                                    </ul>
+                                </DropdownMenu>
                             </UncontrolledDropdown>
                         </ul>
                     </Collapse>
-
-                
                 </Navbar>
                 </div>
             </header>
         )
     }
-
 }
 
 export default Header;
